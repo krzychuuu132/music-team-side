@@ -1,0 +1,133 @@
+
+
+.squad{
+       // padding: 0 !important;
+    & .wrapper{
+        flex-direction: column;
+        padding: 0; 
+        align-items: flex-start;
+       
+    }
+
+    &__view{
+        width: 100%;
+
+        &-slider{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+
+            @media (min-width:768px) {
+                display: none;
+            
+            }
+            &_btn{
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            &_dots{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &_dot{
+                width: 10px;
+                height: 10px;
+                background-color: black;
+                border-radius: 50%;
+                margin: 0 3px;
+            }
+        }
+    }
+}
+
+.squad-wrapper{
+    @media (min-width:768px) {
+        display: flex;
+    }
+}
+
+.squad__view-picture{
+
+    margin-top: 10px;
+    display: flex;
+    
+
+    &_img{
+        display: block;
+        width: 100%;
+
+        @media (min-width:768px) {
+            max-width: 350px;
+        }
+    }
+
+    &_gallery{
+       
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 20px;
+      
+
+        @media (min-width:768px) {
+            display: flex;
+        }
+
+        &-img{
+            display: block;
+            width: 50px;
+            height: 60px;
+            filter: brightness(.8);
+            margin-bottom: 7px;
+        }
+    }
+}
+
+.squad__text{
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+
+    &-description{
+        padding: 0 !important;
+        margin-top: 20px;
+        position: relative;
+        padding-bottom: 20px !important;
+
+        @media (min-width:768px) {
+            padding-bottom: 40px !important;
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            transform: translateX(30px);
+    
+            @media (min-width:768px) {
+                transform: translateX(0px);
+            }
+        }
+    }
+    
+    &-name{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+   
+}

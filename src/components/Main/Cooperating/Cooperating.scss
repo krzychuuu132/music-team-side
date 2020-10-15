@@ -1,0 +1,34 @@
+
+
+.cooperating .wrapper{
+    flex-direction: column;
+    padding: 0; 
+    align-items: flex-start;
+}
+
+.cooperating-wrapper{
+    display: flex;
+    margin-top: 25px;
+}
+
+.cooperating{
+
+    &__person{
+        display: flex;
+        flex-direction: column;
+        margin-right: 25px;
+        width: 150px;
+
+        &-picture{
+            display: block;
+            height: 170px;
+            width: 100%;
+        }
+
+        &-name{
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+        }
+    }
+}

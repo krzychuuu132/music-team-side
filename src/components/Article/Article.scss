@@ -1,0 +1,22 @@
+
+
+.article{
+    display: none;
+
+    @media (min-width: 768px) {
+        display: block;
+    }
+}
+
+.slide{
+
+    &__img{
+        @media (min-width: 768px) {
+            height: 250px;
+        }
+
+        @media (min-width: 1024px) {
+            height: 350px;
+        }
+    }
+}
