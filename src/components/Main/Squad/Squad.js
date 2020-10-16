@@ -1,4 +1,5 @@
 import React,{ useEffect,useState } from 'react';
+import  { Transition } from 'react-transition-group';
 
 import { fetchSquad } from '../../../utilities/fetchData';
 
@@ -49,7 +50,7 @@ const Squad = () => {
                     <h2 className="section__title about-team__title">stały skład</h2>
 
                     <div className="squad-wrapper">
-
+                   
                     <div className="squad__view">
 
                         <div className="squad__view-slider">
@@ -65,14 +66,15 @@ const Squad = () => {
                             <button className="squad__view-slider_btn" onClick={()=>setChangePersonMobile('next')}><span className="fas fa-chevron-right"></span></button>
 
                         </div>
-
+                 
                         <div className="squad__view-picture">
 
                             <div className="squad__view-picture_gallery">{
                                     
                                    squad.map((person,index)=>
+                                   // eslint-disable-next-line jsx-a11y/alt-text
                                    <img 
-                                   src={'http://localhost:1337'+person.zdjecie[0].formats.thumbnail.url} 
+                                   src={'http://localhost:1337'+person.zdjecie[0].formats.thumbnail.url}
                                    key={index} 
                                    className="squad__view-picture_gallery-img" onClick={()=>handleChangePerson(index)}/>
                                     )  
@@ -81,9 +83,9 @@ const Squad = () => {
                             <img src={squad.length!==0?'http://localhost:1337'+squad[counter].zdjecie[0].url:null} alt="squad-persons" className="squad__view-picture_img"/>
 
                         </div>
-
+                     
                     </div>
-
+                    
                     <div className="squad__text">
 
                         <h3 className="squad__text-name">{squad.length!==0?squad[counter].imie:null}</h3>

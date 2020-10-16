@@ -18,7 +18,11 @@
         flex-direction: column;
         margin-right: 25px;
         width: 150px;
-
+        margin-left: 20px;
+        
+        @media (min-width:768px) {
+            margin-left: 0px;
+        }
         &-picture{
             display: block;
             height: 170px;
