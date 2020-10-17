@@ -1,0 +1,139 @@
+
+.contact .wrapper{
+    flex-direction: column;
+    
+    align-items: flex-start;
+    padding-left: 0;
+}
+
+
+.contact{
+
+
+    &__data{
+        border: 2px solid black;
+        border-left: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-right: 20px;
+        padding: 20px;
+        margin-top: 25px;
+
+        @media (min-width:768px) {
+            border-left: 2px solid black;
+            height: min-content;
+            margin-left: 60px;
+            margin-top: 40px;
+        }
+
+        &-title{
+            font-size: 1.5rem;
+            font-weight: normal;
+            &::first-letter{
+                text-transform: uppercase;
+                
+            }
+        }
+
+        &-container{
+            display: flex;
+            flex-direction: column;
+
+            
+
+            &:nth-of-type(2){
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+.contact-wrapper{
+    width: 100%;
+
+    @media (min-width:768px) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.contact__validation{
+    margin: 0 15px;
+    margin-top: 35px;
+
+    @media (min-width:768px) {
+        width: 100%;
+    }
+  
+    &-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        &_input{
+            border: none;
+            border-bottom: 1px solid rgb(109, 105, 105);
+            margin-top: 20px !important;
+            font-size: .9rem;
+            outline: none;
+            transition: all .4s;
+
+            &:focus{
+                border-color: black;
+            }
+        }
+
+        &_check{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        &_checkbox{
+            margin: 6px 5px 0 0;
+           
+            &-text{
+                width: 75%;
+                font-size: .8rem;
+            }
+        }
+    }
+
+    &-btn{
+        @media (min-width:768px) {
+            margin: 20px 0 0 0!important;
+           align-self: flex-end;
+        
+        }
+    }
+}
+textarea{
+    resize: none;
+}
+
+input[type="checkbox"]{
+    position: relative;
+}
+
+input[type="checkbox"]:checked{
+    background-color: white !important;
+}
+
+input[type="checkbox"]:checked:after {
+    /* Heres your symbol replacement */
+    content: "X";
+    color: black;
+    /* The following positions my tick in the center, 
+     * but you could just overlay the entire box
+     * with a full after element with a background if you want to */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}

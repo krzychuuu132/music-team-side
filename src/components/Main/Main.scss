@@ -55,3 +55,22 @@
         max-width: 1100px;
     }
 }
+
+.section__btn{
+    display: block;
+    text-transform: uppercase;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0 auto;
+    color: black;
+    transition: all .4s;
+    margin-top: 25px;
+
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}

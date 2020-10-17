@@ -1,0 +1,39 @@
+.footer{
+    
+    padding: 20px;
+    border-top: 1px solid black;
+    margin-top: 60px;
+
+    @media (min-width:768px) {
+        flex-direction: row;
+        padding: 50px 0;
+    }
+
+    &__text{
+        font-size: .8rem;
+    }
+    
+    &__social-media{
+       width:180px;
+        height: auto;
+       
+        display: flex;
+        justify-content: space-between;
+
+        &-img{
+            
+        }
+    }
+}
+
+.footer .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width:768px) {
+        flex-direction: row;
+    
+    }
+}
