@@ -43,7 +43,7 @@ const Squad = () => {
     }
     
     return ( 
-       <section className="section squad">
+       <section className="section squad" id="team">
 
            <div className="wrapper">
 

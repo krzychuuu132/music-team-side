@@ -24,7 +24,7 @@ const Navigation = ({menuSections}) => {
                 {
                     menuSections.map(menuSection=>(
                         <li key={menuSection.id} className="navigation__item">
-                            <a href="#" className="navigation__link">{menuSection.title}</a>
+                            <a href={menuSection.path} className="navigation__link">{menuSection.title}</a>
                         </li>
                     ))
                 }

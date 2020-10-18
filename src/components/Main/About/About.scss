@@ -1,6 +1,7 @@
 
 .about-team .wrapper{
     flex-direction: column-reverse;
+    padding: 0;
 
     @media (min-width:768px) {
         flex-direction: row;
@@ -10,7 +11,7 @@
 
 .about-team{
     display: flex;
-    padding: 0 20px;
+   
     
     
 
@@ -84,6 +85,7 @@
 
 .about-team__info{
     margin: 30px 0 50px 0;
+    padding: 0 20px;
 
     @media (min-width:768px) {
         width: 35%;

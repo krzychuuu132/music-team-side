@@ -9,7 +9,7 @@ const Visits = () => {
     const [visits,setVisits] = useState([]);
 
     useEffect(()=>{
-        //
+        
         const fetchData = async () => {
 
             const data  = await fetchSquad('http://localhost:1337/visits');
@@ -29,7 +29,7 @@ const Visits = () => {
 
     return ( 
        
-        <section className="section realization">
+        <section className="section realization" id="visits">
 
             <div className="wrapper">
 

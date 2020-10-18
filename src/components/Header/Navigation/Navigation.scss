@@ -63,12 +63,13 @@
         display: block;
         height: 100%;
         width: 100%;
-        padding: 15px 3px;
+        padding: 5px 3px;
         font-size: 1.5rem;
         position: relative;
         cursor: pointer;
         z-index: 2;
         overflow-x: hidden;
+        
 
         &::after{
             content: "";
@@ -106,8 +107,10 @@
         @media (min-width: 1024px) {
             font-size: 1rem;
             margin-right: 27px;
-            text-align: initial;
+            text-align: center;
             padding: 0px 3px;
+            text-align: center;
+            overflow: hidden;
 
             &::after{
                 display: none;
@@ -172,10 +175,13 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 60vh;
+        height: 600px;
+        border-top: 1px solid black;
        
         visibility: visible;
         pointer-events: initial;
+        padding: 10px 0;
+        padding-bottom: 30px;
 
         @media (min-width: 1024px) {
             flex-direction: row;
@@ -183,5 +189,7 @@
             height: initial;
         }
     }
+
+    
 }
 

@@ -2,9 +2,11 @@
 
 .article{
     display: none;
-
+    margin-top: 70px;
+    
     @media (min-width: 768px) {
         display: block;
+        
     }
 }
 

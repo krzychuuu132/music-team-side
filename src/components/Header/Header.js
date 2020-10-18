@@ -11,31 +11,34 @@ const Header = () => {
     const menuSections = [
         {
             id:0,
-            title: 'o zespole'
+            title: 'o zespole',
+            path: '#about-tem'
         },
         {
             id:1,
-            title: 'skład'
+            title: 'skład',
+            path: '#team'
         },
         {
             id:2,
-            title: 'realizacje'
+            title: 'realizacje',
+            path: '#realizations'
         },
+        
         {
             id:3,
-            title: 'o zespole'
+            title: 'oferta',
+            path: '#offer'
         },
         {
             id:4,
-            title: 'oferta'
+            title: 'kontakt',
+            path: '#contact'
         },
         {
             id:5,
-            title: 'kontakt'
-        },
-        {
-            id:0,
-            title: 'tu będziemy'
+            title: 'tu będziemy',
+            path: '#visits'
         },
     ]
     return ( 
