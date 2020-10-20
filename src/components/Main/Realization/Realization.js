@@ -2,6 +2,8 @@ import React,{ useEffect,useState } from 'react';
 
 import { fetchSquad } from '../../../utilities/fetchData';
 
+import YoutubeIcon from '../../../img/youtube.png';
+
 import './Realization.scss';
 
 const Realization = () => {
@@ -38,7 +40,7 @@ const Realization = () => {
                                 <div className="realization-playlist">
                                     {
                                         realizations.map((realization,index)=>(
-                                            <a href={realization.link} target="blank" key={index}>
+                                            <a href={realization.link} target="blank" key={index} className="realization-playlist-link">
                                                 <picture>
                                                 <source media="(min-width:350px)" src={'http://localhost:1337'+realization.zdjecie[0].formats.thumbnail.url} />
                                                 <source media="(min-width:500px)" src={'http://localhost:1337'+realization.zdjecie[0].formats.small.url} />
@@ -49,7 +51,11 @@ const Realization = () => {
                                                 className="realization-playlist-img"
                                                 />
                                                 </picture>
-                                                </a>
+
+                                                <div className="realization-playlist-icon">
+                                                    <img src={YoutubeIcon} alt="playlist-icon" className="realization-playlist-icon_img"/>
+                                                </div>
+                                            </a>
                                         ))
                                     }
                                     

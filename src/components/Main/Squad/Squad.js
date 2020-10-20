@@ -1,5 +1,7 @@
 import React,{ useEffect,useState } from 'react';
 import  { Transition } from 'react-transition-group';
+import gsap from 'gsap';
+
 
 import { fetchSquad } from '../../../utilities/fetchData';
 
@@ -11,6 +13,7 @@ const Squad = () => {
 
     const [squad,setSquad] = useState([]);
     const [counter,setCounter] = useState(0);
+    const [activeVounter,setActiveCounter] = useState(false);
 
     useEffect(()=>{
         //
@@ -30,16 +33,24 @@ const Squad = () => {
     },[])
    
     const handleChangePerson  = (index) =>{
-        console.log(index)
+      
         setCounter(index)
+
+        gsap.fromTo(document.querySelector('.squad__view-picture_img'),.5,{
+            opacity:0,
+          
+        },{opacity:1})
     }
 
     const setChangePersonMobile  =(type) =>{
         
-       
+        gsap.fromTo(document.querySelector('.squad__view-picture_img'),.5,{
+            opacity:0,
+          
+        },{opacity:1})
       
         setCounter(prevState=>type === 'next'?counter === squad.length-1 ? 0:++prevState:counter <= 0 ? squad.length-1:--prevState);
-     console.log(counter)
+     
     }
     
     return ( 
@@ -52,9 +63,11 @@ const Squad = () => {
                     <div className="squad-wrapper">
                    
                     <div className="squad__view">
-
+                       
                         <div className="squad__view-slider">
 
+                        
+                               
                             <button className="squad__view-slider_btn"><span className="fas fa-chevron-left" onClick={()=>setChangePersonMobile('previous')}></span></button>
 
                                 <div className="squad__view-slider_dots">{
@@ -63,7 +76,12 @@ const Squad = () => {
 
                                 }</div>
 
-                            <button className="squad__view-slider_btn" onClick={()=>setChangePersonMobile('next')}><span className="fas fa-chevron-right"></span></button>
+                            <button className="squad__view-slider_btn" 
+                            onClick={()=>setChangePersonMobile('next')} >
+                                <span className="fas fa-chevron-right"></span>
+                            </button>
+                             
+                           
 
                         </div>
                  
@@ -76,7 +94,9 @@ const Squad = () => {
                                    <img 
                                    src={'http://localhost:1337'+person.zdjecie[0].formats.thumbnail.url}
                                    key={index} 
+                                   onChange={()=>console.log('siemaa')}
                                    className="squad__view-picture_gallery-img" onClick={()=>handleChangePerson(index)}/>
+                                   
                                     )  
                             }</div>
                             

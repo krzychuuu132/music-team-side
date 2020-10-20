@@ -9,6 +9,11 @@
 .cooperating-wrapper{
     display: flex;
     margin-top: 25px;
+    padding: 0 10px;
+
+     @media (min-width:768px) {
+        //padding: 10px;
+    }
 }
 
 .cooperating{
