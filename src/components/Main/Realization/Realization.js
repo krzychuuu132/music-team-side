@@ -6,7 +6,7 @@ import YoutubeIcon from '../../../img/youtube.png';
 
 import './Realization.scss';
 
-const Realization = () => {
+const Realization = ({url}) => {
 
     const [realizations,setRealizations] = useState([]);
 
@@ -14,7 +14,7 @@ const Realization = () => {
         //
         const fetchData = async () => {
 
-            const data  = await fetchSquad('http://localhost:1337/playlists');
+            const data  = await fetchSquad(`${url}/playlists`);
 
             if(data!==null) {
                 
@@ -24,7 +24,7 @@ const Realization = () => {
 
       fetchData();
         
-
+        
     },[])
 
     return (
@@ -42,11 +42,11 @@ const Realization = () => {
                                         realizations.map((realization,index)=>(
                                             <a href={realization.link} target="blank" key={index} className="realization-playlist-link">
                                                 <picture>
-                                                <source media="(min-width:350px)" src={'http://localhost:1337'+realization.zdjecie[0].formats.thumbnail.url} />
-                                                <source media="(min-width:500px)" src={'http://localhost:1337'+realization.zdjecie[0].formats.small.url} />
+                                                <source media="(min-width:350px)" src={url+realization.zdjecie[0].formats.thumbnail.url} />
+                                                <source media="(min-width:500px)" src={url+realization.zdjecie[0].formats.small.url} />
                                                 <img 
                                                 
-                                                src={'http://localhost:1337'+realization.zdjecie[0].formats.small.url} 
+                                                src={url+realization.zdjecie[0].formats.small.url} 
                                                 alt="realizations-piece"
                                                 className="realization-playlist-img"
                                                 />

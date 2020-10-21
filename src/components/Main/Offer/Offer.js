@@ -5,7 +5,7 @@ import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Offer.scss';
 
-const Offer = () => {
+const Offer = ({url}) => {
 
     
     const [offers,setOffers] = useState([]);
@@ -16,7 +16,7 @@ const Offer = () => {
         //
         const fetchData = async () => {
 
-            const data  = await fetchSquad('http://localhost:1337/offers');
+            const data  = await fetchSquad(`${url}/offers`);
 
             if(data!==null) {
                 
@@ -33,8 +33,8 @@ const Offer = () => {
 
         gsap.fromTo(document.querySelector('.offer__gallery-main-img'),.5,{
             opacity:0,
-          
-        },{opacity:1})
+            scale:.7
+        },{opacity:1,scale:1,delay:.3})
 
         setCounter(index)
     }
@@ -43,7 +43,7 @@ const Offer = () => {
         
         gsap.fromTo(document.querySelector('.offer__gallery-main-img'),.5,{
             opacity:0,
-          
+            
         },{opacity:1})
       
         setCounter(prevState=>type === 'next'?counter === offers.length-1 ? 0:++prevState:counter <= 0 ? offers.length-1:--prevState);
@@ -78,7 +78,7 @@ const Offer = () => {
                             <div className="offer__gallery">
 
                                 <div className="offer__gallery-main">
-                                    <img src={offers.length !== 0 ? 'http://localhost:1337'+offers[counter].zdjecie[0].url:null} alt="main-offer" className="offer__gallery-main-img"/>
+                                    <img src={offers.length !== 0 ? url+offers[counter].zdjecie[0].url:null} alt="main-offer" className="offer__gallery-main-img"/>
 
                                     <h2 className="offer__gallery-main-title">{offers.length !== 0 ? offers[counter].tytul:null}</h2>
 
@@ -89,7 +89,7 @@ const Offer = () => {
                                    {
                                        offers.map((offer,index)=>(
                                            <img 
-                                           src={'http://localhost:1337'+offer.zdjecie[0].formats.thumbnail.url} 
+                                           src={url+offer.zdjecie[0].formats.thumbnail.url} 
                                            alt="offers" 
                                            key={index} 
                                            className="offer__gallery-offers-img"

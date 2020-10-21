@@ -9,17 +9,17 @@ import "./Squad.scss";
 
 
 
-const Squad = () => {
+const Squad = ({url}) => {
 
     const [squad,setSquad] = useState([]);
     const [counter,setCounter] = useState(0);
-    const [activeVounter,setActiveCounter] = useState(false);
-
+   
+  
     useEffect(()=>{
         //
         const fetchData = async () => {
 
-            const data  = await fetchSquad('http://localhost:1337/squads');
+            const data  = await fetchSquad(`${url}/squads`);
 
             if(data!==null) {
                 
@@ -29,9 +29,9 @@ const Squad = () => {
 
       fetchData();
         
-
+       
     },[])
-   
+    console.log(squad)
     const handleChangePerson  = (index) =>{
       
         setCounter(index)
@@ -92,7 +92,7 @@ const Squad = () => {
                                    squad.map((person,index)=>
                                    // eslint-disable-next-line jsx-a11y/alt-text
                                    <img 
-                                   src={'http://localhost:1337'+person.zdjecie[0].formats.thumbnail.url}
+                                   src={url+person.zdjecie[0].formats.thumbnail.url}
                                    key={index} 
                                    onChange={()=>console.log('siemaa')}
                                    className="squad__view-picture_gallery-img" onClick={()=>handleChangePerson(index)}/>
@@ -100,7 +100,7 @@ const Squad = () => {
                                     )  
                             }</div>
                             
-                            <img src={squad.length!==0?'http://localhost:1337'+squad[counter].zdjecie[0].url:null} alt="squad-persons" className="squad__view-picture_img"/>
+                            <img src={squad.length!==0?url+squad[counter].zdjecie[0].url:null} alt="squad-persons" className="squad__view-picture_img"/>
 
                         </div>
                      

@@ -4,7 +4,7 @@ import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Cooperating.scss';
 
-const Cooperating = () => {
+const Cooperating = ({url}) => {
 
     const [cooperating,setCooperating] = useState([]);
 
@@ -12,7 +12,7 @@ const Cooperating = () => {
         //
         const fetchData = async () => {
 
-            const data  = await fetchSquad('http://localhost:1337/coops');
+            const data  = await fetchSquad(`${url}/coops`);
 
             if(data!==null) {
                 
@@ -42,7 +42,7 @@ const Cooperating = () => {
                         {
                             console.log(person)
                         }
-                        <img src={'http://localhost:1337'+person.zdjecie[0].url} alt="cooperating-person" className="cooperating__person-picture"/>
+                        <img src={url+person.zdjecie[0].url} alt="cooperating-person" className="cooperating__person-picture"/>
 
                     <p className="cooperating__person-name">{person.name}</p>
 

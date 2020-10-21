@@ -4,7 +4,7 @@ import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Visits.scss';
 
-const Visits = () => {
+const Visits = ({url}) => {
 
     const [visits,setVisits] = useState([]);
 
@@ -12,7 +12,7 @@ const Visits = () => {
         
         const fetchData = async () => {
 
-            const data  = await fetchSquad('http://localhost:1337/visits');
+            const data  = await fetchSquad(`${url}/visits`);
 
             if(data!==null) {
                 
