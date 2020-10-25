@@ -2,26 +2,47 @@
 
 .squad{
        // padding: 0 !important;
+      
     & .wrapper{
+        width: 100%;
         flex-direction: column;
-        padding: 0; 
+        padding: 0px; 
         align-items: flex-start;
-       
+
+        @media (min-width:768px) {
+            width: auto;
+           padding: 0 20px; 
+        
+        }
+
+        @media (min-width:1024px) {
+            padding: 0px; 
+         
+         }
     }
 
     &__view{
-        width: 100%;
+        
+      
 
         &-slider{
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 0 15px;
+         
 
             @media (min-width:768px) {
                 display: none;
-            
+                
             }
+            &-btns{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 15px;
+                margin-bottom: 10px;
+            }
+
             &_btn{
                 background-color: transparent;
                 border: none;
@@ -31,21 +52,29 @@
             &_dots{
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+               
             }
 
             &_dot{
-                width: 10px;
-                height: 10px;
+                width: 7px;
+                height: 7px;
                 background-color: black;
                 border-radius: 50%;
                 margin: 0 3px;
+
+                &--active{
+                    padding: 7px;
+                }
             }
         }
     }
 }
 
 .squad-wrapper{
+    width: 100%;
     @media (min-width:768px) {
+        width: auto;
         display: flex;
     }
 }
@@ -53,17 +82,26 @@
 .squad__view-picture{
 
     margin-top: 10px;
+   
     display: flex;
-    
+
+    @media (min-width:768px) {
+        margin-right: 20px;
+    }
 
     &_img{
-        display: block;
+        display: none;
         width: 100%;
         filter: brightness(.7);
+        
+        
 
         @media (min-width:768px) {
+            display: block;
             max-width: 350px;
             max-height: 525px;
+            width: 100%;
+            min-width: 250px;
         }
     }
 
@@ -71,7 +109,7 @@
        
         display: none;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         margin-right: 30px;
       
@@ -92,19 +130,23 @@
 }
 
 .squad__text{
-    width: 100%;
+    
     padding: 10px 15px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
  
+    @media (min-width:768px) {
+        width: 60%;
+    }
 
     &-description{
         padding: 0 !important;
         margin-top: 20px;
         position: relative;
         padding-bottom: 20px !important;
+        
 
         @media (min-width:768px) {
             padding-bottom: 40px !important;
@@ -134,3 +176,29 @@
 
    
 }
+
+.swiper-container {
+  
+    max-height: 600px;
+   
+
+    @media (min-width:768px) {
+        display: none;
+    }
+}
+
+.swiper-slide {
+   
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+        
+   
+
+      &__img{
+          display: block;
+          width: 100%;
+          height: 100%;
+          filter: brightness(.8);
+      }
+    }

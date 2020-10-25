@@ -12,6 +12,7 @@
 
     @media (min-width: 768px) {
         padding: 0 15px;
+        transform: translateX(-45px);
     }
 }
 
@@ -34,7 +35,7 @@
             }
 
             &-img{
-                display: block;
+                display: none;
                 width: 100%;
 
                 @media (min-width: 768px) {

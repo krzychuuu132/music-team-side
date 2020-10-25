@@ -100,9 +100,7 @@
             color: black;
         }
 
-        &:hover::before{
-            transform: translateX(0%) translateY(-15px);
-        }
+        
 
         @media (min-width: 1024px) {
             font-size: 1rem;
@@ -116,7 +114,9 @@
                 display: none;
             }
             
-
+            &:hover::before{
+                transform: translateX(0%) translateY(-15px);
+            }
           
         }
     }
@@ -142,6 +142,8 @@
         background-color: transparent;
         position: relative;
         cursor: pointer;
+        outline: none !important;
+        
 
         &::after,&::before{
             content: "";
@@ -150,6 +152,7 @@
             width: 100%;
             height: 2px;
             background-color: black;
+            transition: transform .2s .2s ease-in-out;        
         }
 
         &::after{
@@ -166,7 +169,21 @@
         width: 100%;
         height: 2px;
         background-color: black;
+        transition: background-color .3s .1s ease-in-out;
+
     }
+}
+
+.navigation__hamburger-btn--active .navigation__hamburger-line{
+    background-color: transparent;
+}
+
+.navigation__hamburger-btn--active::before{
+    transform: translateY(-10px) rotate(45deg);
+}
+
+.navigation__hamburger-btn--active::after{
+    transform: translateY(8px) rotate(-45deg) ;
 }
 
 .navigation--active{

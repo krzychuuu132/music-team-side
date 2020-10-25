@@ -11,7 +11,7 @@ const Navigation = ({menuSections}) => {
 
                 <div className="navigation__hamburger">
 
-                    <button className="navigation__hamburger-btn" onClick={()=>setActiveHamburger(!activeHamburger)}>
+                    <button className={activeHamburger ? "navigation__hamburger-btn navigation__hamburger-btn--active":"navigation__hamburger-btn"} onClick={()=>setActiveHamburger(!activeHamburger)}>
                             <span className="navigation__hamburger-line"></span>
                     </button>
 
@@ -24,7 +24,7 @@ const Navigation = ({menuSections}) => {
                 {
                     menuSections.map(menuSection=>(
                         <li key={menuSection.id} className="navigation__item">
-                            <a href={menuSection.path} className="navigation__link">{menuSection.title}</a>
+                            <a href={menuSection.path} className="navigation__link" onClick={()=>setActiveHamburger(false)}>{menuSection.title}</a>
                         </li>
                     ))
                 }

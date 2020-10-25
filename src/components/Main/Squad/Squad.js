@@ -1,11 +1,12 @@
-import React,{ useEffect,useState } from 'react';
-import  { Transition } from 'react-transition-group';
+import React,{ useEffect,useState,useRef } from 'react';
 import gsap from 'gsap';
 
 
 import { fetchSquad } from '../../../utilities/fetchData';
+import { UseMobileSlider } from '../../../utilities/customhooks/UseMobileSlider';
 
 import "./Squad.scss";
+
 
 
 
@@ -14,9 +15,12 @@ const Squad = ({url}) => {
     const [squad,setSquad] = useState([]);
     const [counter,setCounter] = useState(0);
    
-  
+    const pictureGallery  = useRef(null);
+
+
+
     useEffect(()=>{
-        //
+        
         const fetchData = async () => {
 
             const data  = await fetchSquad(`${url}/squads`);
@@ -29,9 +33,12 @@ const Squad = ({url}) => {
 
       fetchData();
         
-       
+    
     },[])
-    console.log(squad)
+    
+
+
+
     const handleChangePerson  = (index) =>{
       
         setCounter(index)
@@ -64,37 +71,27 @@ const Squad = ({url}) => {
                    
                     <div className="squad__view">
                        
-                        <div className="squad__view-slider">
-
-                        
-                               
-                            <button className="squad__view-slider_btn"><span className="fas fa-chevron-left" onClick={()=>setChangePersonMobile('previous')}></span></button>
-
-                                <div className="squad__view-slider_dots">{
-
-                                  squad.map((person,index)=> <span className="squad__view-slider_dot" key={index}></span>)  
-
-                                }</div>
-
-                            <button className="squad__view-slider_btn" 
-                            onClick={()=>setChangePersonMobile('next')} >
-                                <span className="fas fa-chevron-right"></span>
-                            </button>
-                             
+                      
+                            
+                                <UseMobileSlider data={squad} url={url} counter={counter} setChangePersonMobile={setChangePersonMobile}/>
                            
 
-                        </div>
+                       
                  
+
+                        
+
                         <div className="squad__view-picture">
 
-                            <div className="squad__view-picture_gallery">{
+                            <div className="squad__view-picture_gallery" ref={pictureGallery}>{
                                     
                                    squad.map((person,index)=>
                                    // eslint-disable-next-line jsx-a11y/alt-text
                                    <img 
                                    src={url+person.zdjecie[0].formats.thumbnail.url}
                                    key={index} 
-                                   onChange={()=>console.log('siemaa')}
+                                  
+                                   style={{height:pictureGallery.current.height+'px'}}
                                    className="squad__view-picture_gallery-img" onClick={()=>handleChangePerson(index)}/>
                                    
                                     )  

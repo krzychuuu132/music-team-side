@@ -3,6 +3,7 @@
 .realization .wrapper{
     flex-direction: column;
     align-items: flex-start;
+
     
 }
 
@@ -35,14 +36,19 @@
         & > a{
            display: block;
            width: 100%;
-           margin-right: 25px;
+           margin-right: 0px;
+           padding: 0 20px;
 
            &:nth-last-of-type(1){
                margin-right: 0;
            }
            @media (min-width:768px) {
             width: auto;
+            margin-right: 25px;
+            padding: 0 10px;
         }
+
+        
         }
 
         &-img{
@@ -55,6 +61,10 @@
 
 .realization-wrapper{
     width: 100%;
+
+    @media (min-width:1024px) {
+        padding: 0 20px;
+    }
 }
 
 .realization__stoper{

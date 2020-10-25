@@ -8,15 +8,19 @@
 
 .cooperating-wrapper{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 25px;
     padding: 0 10px;
 
-     @media (min-width:768px) {
-        //padding: 10px;
-    }
+
 }
 
 .cooperating{
+
+    &__title{
+        padding-left: 0 !important;
+    }
 
     &__person{
         display: flex;

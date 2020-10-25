@@ -9,14 +9,15 @@ import Contact from './Contact/Contact';
 import Visits from './Visits/Visits';
 import Footer from './Footer/Footer';
 
+import 'swiper/swiper-bundle.css';
 
 
 import './Main.scss';
 
 
 const Main = () => {
-
-    const url = "https://music-team-cms.herokuapp.com";
+    //https://music-team-cms.herokuapp.com
+    const url = "http://localhost:1337";
 
     return ( 
         <main className="main">

@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Offer.scss';
+import { UseMobileSlider } from '../../../utilities/customhooks/UseMobileSlider';
 
 const Offer = ({url}) => {
 
@@ -33,8 +34,8 @@ const Offer = ({url}) => {
 
         gsap.fromTo(document.querySelector('.offer__gallery-main-img'),.5,{
             opacity:0,
-            scale:.7
-        },{opacity:1,scale:1,delay:.3})
+        
+        },{opacity:1})
 
         setCounter(index)
     }
@@ -61,24 +62,27 @@ const Offer = ({url}) => {
                         <div className="offer-wrapper">
 
                             
-                        <div className="squad__view-slider">
-
-                            <button className="squad__view-slider_btn"><span className="fas fa-chevron-left" onClick={()=>setChangePersonMobile('previous')}></span></button>
-
-                            <div className="squad__view-slider_dots">{
-
-                            offers.map((person,index)=> <span className="squad__view-slider_dot" key={index}></span>)  
-
-                            }</div>
-
-                            <button className="squad__view-slider_btn" onClick={()=>setChangePersonMobile('next')}><span className="fas fa-chevron-right"></span></button>
-
-                        </div>
+                            <UseMobileSlider 
+                                data={offers} 
+                                url={url} 
+                                counter={counter} 
+                                setChangePersonMobile={setChangePersonMobile}
+                            />
 
                             <div className="offer__gallery">
 
                                 <div className="offer__gallery-main">
-                                    <img src={offers.length !== 0 ? url+offers[counter].zdjecie[0].url:null} alt="main-offer" className="offer__gallery-main-img"/>
+
+                                    
+
+                                    <img 
+                                    src={offers.length !== 0 ? url+offers[counter].zdjecie[0].url:null} 
+                                    alt="main-offer" 
+                                    className="offer__gallery-main-img"
+                                    onTouchMove={(e)=>{
+                                            console.log(e.targetTouches[0])
+                                    }}
+                                    />
 
                                     <h2 className="offer__gallery-main-title">{offers.length !== 0 ? offers[counter].tytul:null}</h2>
 
