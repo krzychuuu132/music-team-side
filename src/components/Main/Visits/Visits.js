@@ -33,7 +33,7 @@ const Visits = ({url}) => {
 
             <div className="wrapper">
 
-                        <h2 className="section__title realization__title">tu będziemy!</h2>
+                        <h2 className="section__title realization__title">tu będziemy! <span className="section__title-line"></span></h2>
 
                         <div className="realization-wrapper">
 

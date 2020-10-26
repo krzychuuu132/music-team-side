@@ -14,7 +14,7 @@ const Offer = ({url}) => {
     const [counter,setCounter] = useState(0);
 
     useEffect(()=>{
-        //
+        
         const fetchData = async () => {
 
             const data  = await fetchSquad(`${url}/offers`);
@@ -57,7 +57,7 @@ const Offer = ({url}) => {
 
             <div className="wrapper">
 
-                        <h2 className="section__title offer__title">nasza oferta</h2>
+                        <h2 className="section__title offer__title">nasza oferta <span className="section__title-line"></span></h2>
 
                         <div className="offer-wrapper">
 
@@ -87,6 +87,8 @@ const Offer = ({url}) => {
                                     <h2 className="offer__gallery-main-title">{offers.length !== 0 ? offers[counter].tytul:null}</h2>
 
                                     <p className="offer__gallery-main-text">{offers.length !== 0 ? offers[counter].opis:null}</p>
+
+                                    
                                 </div>
 
                                 <div className="offer__gallery-offers">
@@ -103,8 +105,11 @@ const Offer = ({url}) => {
                                    }
                                 </div>
 
+                                
+
                             </div>
 
+                            <button className="section__btn offer__btn">zapytaj o szczegóły</button>
 
                         </div>
 

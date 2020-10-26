@@ -65,7 +65,7 @@ const Squad = ({url}) => {
 
            <div className="wrapper">
 
-                    <h2 className="section__title about-team__title">stały skład</h2>
+                    <h2 className="section__title about-team__title">stały skład <span className="section__title-line"></span></h2>
 
                     <div className="squad-wrapper">
                    
@@ -73,7 +73,12 @@ const Squad = ({url}) => {
                        
                       
                             
-                                <UseMobileSlider data={squad} url={url} counter={counter} setChangePersonMobile={setChangePersonMobile}/>
+                                <UseMobileSlider 
+                                data={squad} 
+                                url={url} 
+                                counter={counter} 
+                                setChangePersonMobile={setChangePersonMobile}
+                                />
                            
 
                        
@@ -106,7 +111,7 @@ const Squad = ({url}) => {
                     <div className="squad__text">
 
                         <h3 className="squad__text-name">{squad.length!==0?squad[counter].imie:null}</h3>
-                        <p className="squad__text-description section__text">{squad.length!==0?squad[counter].opis:null}</p>
+                        <p className="squad__text-description section__text">{squad.length!==0?squad[counter].opis:null} <span className="squad__text-description-line"></span></p>
 
                     </div>
 

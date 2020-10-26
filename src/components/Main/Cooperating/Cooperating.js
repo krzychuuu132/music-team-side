@@ -31,7 +31,7 @@ const Cooperating = ({url}) => {
 
               <div className="wrapper">
 
-              <h2 className="section__title cooperating__title">współpraca</h2>
+              <h2 className="section__title cooperating__title">współpraca <span className="section__title-line"></span></h2>
 
               <div className="cooperating-wrapper">
 

@@ -112,27 +112,3 @@
 textarea{
     resize: none;
 }
-
-input[type="checkbox"]{
-    position: relative;
-}
-
-input[type="checkbox"]:checked{
-    background-color: white !important;
-}
-
-input[type="checkbox"]:checked:after {
-    /* Heres your symbol replacement */
-    content: "X";
-    color: black;
-    /* The following positions my tick in the center, 
-     * but you could just overlay the entire box
-     * with a full after element with a background if you want to */
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-}

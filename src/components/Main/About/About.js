@@ -15,7 +15,10 @@ const About = () => {
   
     aboutImgRef.current.style.height = `${aboutInfoRef.current.offsetHeight -20}px`;
 
-    
+    const h1 = document.querySelector('.section__title');
+    var styles = window.getComputedStyle(h1, ':after');
+    console.log(styles)
+
   },[])
 
     return ( 
@@ -26,7 +29,9 @@ const About = () => {
 
             <div className="about-team__info" ref={aboutInfoRef}>
 
-                <h2 className="section__title about-team__title">o zespole</h2>
+                <h2 className="section__title about-team__title">o zespole  <span className="section__title-line"></span></h2>
+
+               
 
                 <p className="section__text about-team__text"><b>Cracow Baroque Consort </b>– to kameralny zespół wokalny, utworzony z inicjatywy studentów oraz absolwentów krakowskiej Akademii Muzycznej.</p>
 
@@ -39,6 +44,8 @@ const About = () => {
             <div className="about-team__picture">
 
                     <img src={about_team_picture} alt='about-team-picture' className="about-team__picture-img" ref={aboutImgRef}/>
+
+                    <span className="about-team__picture-line"></span>
 
             </div>
 

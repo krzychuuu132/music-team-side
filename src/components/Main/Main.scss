@@ -20,10 +20,10 @@
     font-size: 1.7rem;
     position: relative;
     padding: 5px 25px;
-   
+   font-weight: 600;
 
-    &::after{
-        content: "";
+    &-line{
+        
         width: 100vw;
         height: 2px;
         background-color: black;

@@ -1,10 +1,13 @@
 import React,{ useEffect,useState } from 'react';
 
+
 import { fetchSquad } from '../../../utilities/fetchData';
 
 import YoutubeIcon from '../../../img/youtube.png';
 
 import './Realization.scss';
+
+
 
 const Realization = ({url}) => {
 
@@ -33,7 +36,7 @@ const Realization = ({url}) => {
 
             <div className="wrapper">
 
-                        <h2 className="section__title realization__title">Realizacje</h2>
+                        <h2 className="section__title realization__title">Realizacje <span className="section__title-line"></span></h2>
 
                             <div className="realization-wrapper">
 
@@ -64,7 +67,14 @@ const Realization = ({url}) => {
                                 <div className="realization__stoper">
                                     <p className="realization__stoper-text"><b>Now playing</b>: Audio test vol 1</p>
                                     
-                                    <div className="realization__stoper-pannel">df</div>
+                                    <div className="realization__stoper-pannel">                                            
+                                    <audio controls>
+	                                        <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+                                            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+	
+                                    </audio>
+                                    
+                                    </div>
                                 </div>
 
                                 <div className="realization__musics">
@@ -79,7 +89,10 @@ const Realization = ({url}) => {
 
                                         <div className="realization__musics-music">
 
-                                            <span class="fas fa-play realization__musics-music_icon"></span>
+                                            <span class="fas fa-play realization__musics-music_icon">
+                                                
+
+                                    </span>
 
                                             <p className="realization__musics-music_text">Audio test vol 1</p>
 

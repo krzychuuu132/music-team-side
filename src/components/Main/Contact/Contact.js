@@ -9,7 +9,7 @@ const Contact = () => {
 
             <div className="wrapper">
 
-                        <h2 className="section__title contact__title">kontakt</h2>
+                        <h2 className="section__title contact__title">kontakt <span className="section__title-line"></span></h2>
 
                         <div className="contact-wrapper">
 

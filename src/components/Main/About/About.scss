@@ -5,6 +5,7 @@
 
     @media (min-width:768px) {
         flex-direction: row;
+        justify-content: space-between;
     }
 }
 
@@ -27,6 +28,7 @@
         
         @media (min-width:768px) {
             width: auto;
+            max-width: 450px;
         }
         &-img{
             display: block;
@@ -58,27 +60,28 @@
 
     &__text{
         padding: 0 !important;
-       
+       line-height: 1.5rem;
     }
 
     &__picture{
         position: relative;
 
-        &::after{
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left:  50%;
-            transform:  translateY(20px);
-            width: 100vw;
-            height: 2px;
-            background-color: black;
-            display: none;
-
-            @media (min-width:768px) {
-                display: block;
+            &-line{
+                position: absolute;
+                bottom: 0;
+                left:  50%;
+                transform:  translateY(20px);
+                width: 100vw;
+                height: 2px;
+                background-color: black;
+                display: none;
+    
+                @media (min-width:768px) {
+                    display: block;
+                   
+                }
             }
-        }
+   
     }
 }
 
@@ -88,7 +91,7 @@
     padding: 0 20px;
 
     @media (min-width:768px) {
-        width: 55%;
+        width: 60%;
         min-width: 350px;
         margin-right: 28px;
     }
