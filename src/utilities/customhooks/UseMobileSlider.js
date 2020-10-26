@@ -7,7 +7,7 @@ Swiper.use([Navigation, Pagination]);
 export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
 
 
-    useEffect(()=>{
+    
     
     const swiper = new Swiper('.swiper-container',{
         width:window.innerWidth,
@@ -32,7 +32,7 @@ export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
         },
     })
     
-    },[data]);
+    
     
     return(
     
