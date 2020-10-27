@@ -1,38 +1,13 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect,useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import Swiper, { Navigation, Pagination } from 'swiper';
 
-Swiper.use([Navigation, Pagination]);
 
 export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
 
 
-    
-    
-    const swiper = new Swiper('.swiper-container',{
-        width:window.innerWidth,
-        height: 300,
-        direction: 'horizontal',
-        loop: true,
-      
-      
-        pagination: {
-          el: '.swiper-pagination',
-        },
-      
-       
-        navigation: {
-          nextEl: '.next',
-          prevEl: '.prev',
-        },
-      
-      
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-    })
-    
-    
+    const nexRef = useRef(null);
+    console.log(data)
     
     return(
     
@@ -40,7 +15,7 @@ export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
     
             <div className="squad__view-slider-btns">                   
                                 
-                <button className="squad__view-slider_btn prev" onClick={()=>setChangePersonMobile('previous')}>
+                <button className="squad__view-slider_btn prev" onClick={()=>setChangePersonMobile('previous')} ref={nexRef}>
                     <span className="fas fa-chevron-left" ></span>
                 </button>
     
@@ -55,30 +30,33 @@ export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
                 </button>
     
             </div> 
-    
-            <div className="swiper-container">
        
-                <div className="swiper-wrapper">
+            <Swiper
+          
+               height={300}
+               direction='horizontal'
+               loop={true}
+               navigation={{nextEl:nexRef.current,prevEl:'.prev'}}
+               pagination={{ el:'.swiper-pagination',clickable:true}}
+               scrollbar={{el:'.swiper-scrollbar',draggable:true}}
+            >
+            {
+              data.length !== 0  ?  data.map((thing,index)=>(
+                    <SwiperSlide  key={index}> 
+                    <img 
+                    src={url+thing.zdjecie[0].url}
+                   
+                    className="swiper-slide__img"
+                    />
+                    
+                    </SwiperSlide>
+                )):console.log('eloo')
+            }
+            </Swiper>
+       
+              
     
-                {
-                    data.map((thing,index)=>(
-                        <div className="swiper-slide" key={index}> 
-                        <img 
-                        src={url+thing.zdjecie[0].url}
-                       
-                        className="swiper-slide__img"
-                        />
-                        
-                        </div>
-                    ))
-                }
-             
-    
-    
-            
-                </div>
-    
-            </div>
+           
      </div>
 
     )

@@ -9,7 +9,7 @@ const Cooperating = ({url}) => {
     const [cooperating,setCooperating] = useState([]);
 
     useEffect(()=>{
-        //
+        
         const fetchData = async () => {
 
             const data  = await fetchSquad(`${url}/coops`);
@@ -39,9 +39,7 @@ const Cooperating = ({url}) => {
                   cooperating.map((person,index)=>(
 
                     <div className="cooperating__person" key={index}>
-                        {
-                            console.log(person)
-                        }
+                       
                         <img src={url+person.zdjecie[0].url} alt="cooperating-person" className="cooperating__person-picture"/>
 
                     <p className="cooperating__person-name">{person.name}</p>
