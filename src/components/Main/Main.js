@@ -1,6 +1,7 @@
-import React,{ useEffect,useRef } from 'react';
+import React,{ useEffect,useRef,useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { request } from 'graphql-request';
 
 import About from './About/About';
 import Squad from './Squad/Squad';
@@ -20,11 +21,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Main = () => {
 
     const mainRef = useRef(null);
-
+    const [dataPage,setDataPage] = useState([]);
     
    
-    //https://music-team-cms.herokuapp.com
-    const url = "http://localhost:1337";
 
     useEffect(()=>{
 
@@ -39,7 +38,8 @@ const Main = () => {
             gsap.fromTo([section_line,document.querySelector('.about-team__picture-line')],{x:'-100%'},{x:0,ease: "elastic.out(1, 0.3)" ,duration:1,scrollTrigger:{
                 trigger:`.${className}`,
                 start:'top 20%',
-               
+                pinReparent:true,
+            toggleActions: "play reverse play reverse"
                
             }})
         })
@@ -60,16 +60,80 @@ const Main = () => {
       
     },[])
 
+    useEffect(()=>{
+        const fetchData = async () => {
+            const  data  = await request(
+              'https://api-eu-central-1.graphcms.com/v2/ckgv5v32w6umh01wf98f906kr/master',
+              `
+              {
+ 
+                coopertns{
+                  name
+                  zdjecie{
+                    url
+                  }
+                  
+                  
+                }
+                squads{
+                  opis
+                  imie
+                  zdjecie{
+                    url
+                  }
+                }
+                
+                  visits{
+                  tytul
+                  data
+                  godzina
+                  miejsce
+                }
+                
+                playlists{
+                  zdjecie{
+                    url
+                  }
+                  link
+                }
+                
+                offers{
+                  opis
+                  tytul
+                  zdjecie{
+                    url
+                  }
+                }
+              }
+          `
+            );
+      
+            setDataPage(data);
+          };
+      
+          fetchData();
+    },[])
+
+    const {coopertns,squads,visits,playlists,offers} = dataPage;
+    
+   
     return ( 
         <main className="main" ref={mainRef}>
-            <About />
-            <Squad url={url}/>
-            <Cooperating url={url}/>
-            <Realization url={url}/>
-            <Offer url={url}/>
-            <Contact />
-            <Visits url={url}/>
-            <Footer />
+           {
+                dataPage.length !== 0 ? (
+                <>
+                    <About />
+                    <Squad  squads={squads}/>
+                    <Cooperating  coopertns={coopertns}/>
+                    <Realization  playlists={playlists}/>
+                    <Offer  offers={offers}/>
+                    <Contact />
+                    <Visits  visits={visits}/>
+                    <Footer />
+                    </>
+               ):null
+           }
+            
         </main>
      );
 }

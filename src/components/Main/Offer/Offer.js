@@ -6,29 +6,11 @@ import { fetchSquad } from '../../../utilities/fetchData';
 import './Offer.scss';
 import { UseMobileSlider } from '../../../utilities/customhooks/UseMobileSlider';
 
-const Offer = ({url}) => {
-
-    
-    const [offers,setOffers] = useState([]);
+const Offer = ({offers}) => {
 
     const [counter,setCounter] = useState(0);
 
-    useEffect(()=>{
-        
-        const fetchData = async () => {
-
-            const data  = await fetchSquad(`${url}/offers`);
-
-            if(data!==null) {
-                
-               return setOffers(data);
-            }
-        };
-
-      fetchData();
-        
-
-    },[])
+    
 
     const handleChangePerson  = (index) =>{
 
@@ -64,8 +46,8 @@ const Offer = ({url}) => {
                             
                             <UseMobileSlider 
                                 data={offers} 
-                                url={url} 
                                 counter={counter} 
+                                setCounter={setCounter}
                                 setChangePersonMobile={setChangePersonMobile}
                             />
 
@@ -76,17 +58,15 @@ const Offer = ({url}) => {
                                     
 
                                     <img 
-                                    src={offers.length !== 0 ? url+offers[counter].zdjecie[0].url:null} 
+                                    src={offers[counter].zdjecie.url}
                                     alt="main-offer" 
                                     className="offer__gallery-main-img"
-                                    onTouchMove={(e)=>{
-                                            console.log(e.targetTouches[0])
-                                    }}
+                                  
                                     />
 
-                                    <h2 className="offer__gallery-main-title">{offers.length !== 0 ? offers[counter].tytul:null}</h2>
+                                    <h2 className="offer__gallery-main-title">{offers[counter].tytul}</h2>
 
-                                    <p className="offer__gallery-main-text">{offers.length !== 0 ? offers[counter].opis:null}</p>
+                                    <p className="offer__gallery-main-text">{ offers[counter].opis}</p>
 
                                     
                                 </div>
@@ -95,7 +75,7 @@ const Offer = ({url}) => {
                                    {
                                        offers.map((offer,index)=>(
                                            <img 
-                                           src={url+offer.zdjecie[0].formats.thumbnail.url} 
+                                           src={offer.zdjecie["url"]}
                                            alt="offers" 
                                            key={index} 
                                            className="offer__gallery-offers-img"

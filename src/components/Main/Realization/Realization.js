@@ -9,26 +9,7 @@ import './Realization.scss';
 
 
 
-const Realization = ({url}) => {
-
-    const [realizations,setRealizations] = useState([]);
-
-    useEffect(()=>{
-        //
-        const fetchData = async () => {
-
-            const data  = await fetchSquad(`${url}/playlists`);
-
-            if(data!==null) {
-                
-               return setRealizations(data);
-            }
-        };
-
-      fetchData();
-        
-        
-    },[])
+const Realization = ({playlists:realizations}) => {
 
     return (
 
@@ -45,11 +26,11 @@ const Realization = ({url}) => {
                                         realizations.map((realization,index)=>(
                                             <a href={realization.link} target="blank" key={index} className="realization-playlist-link">
                                                 <picture>
-                                                <source media="(min-width:350px)" src={url+realization.zdjecie[0].formats.thumbnail.url} />
-                                                <source media="(min-width:500px)" src={url+realization.zdjecie[0].formats.small.url} />
+                                                <source media="(min-width:350px)" src={realization.zdjecie["url"]} />
+                                                <source media="(min-width:500px)" src={realization.zdjecie["url"]} />
                                                 <img 
                                                 
-                                                src={url+realization.zdjecie[0].formats.small.url} 
+                                                src={realization.zdjecie["url"]}
                                                 alt="realizations-piece"
                                                 className="realization-playlist-img"
                                                 />

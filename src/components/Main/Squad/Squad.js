@@ -10,31 +10,14 @@ import "./Squad.scss";
 
 
 
-const Squad = ({url}) => {
-
-    const [squad,setSquad] = useState([]);
+const Squad = ({squads: squad}) => {
+    console.log(squad)
+   
     const [counter,setCounter] = useState(0);
    
     const pictureGallery  = useRef(null);
 
 
-
-    useEffect(()=>{
-        
-        const fetchData = async () => {
-
-            const data  = await fetchSquad(`${url}/squads`);
-
-            if(data!==null) {
-                
-               return setSquad(data);
-            }
-        };
-
-      fetchData();
-        
-    
-    },[])
     
 
 
@@ -61,7 +44,9 @@ const Squad = ({url}) => {
     }
     
     return ( 
-       <section className="section squad" id="team">
+        
+         
+                <section className="section squad" id="team">
 
            <div className="wrapper">
 
@@ -73,10 +58,11 @@ const Squad = ({url}) => {
                        
                       
                             
-                                <UseMobileSlider 
+                              <UseMobileSlider 
                                 data={squad} 
-                                url={url} 
+                               
                                 counter={counter} 
+                                setCounter={setCounter}
                                 setChangePersonMobile={setChangePersonMobile}
                                 />
                            
@@ -90,19 +76,25 @@ const Squad = ({url}) => {
 
                             <div className="squad__view-picture_gallery" ref={pictureGallery}>{
                                     
-                                   squad.map((person,index)=>
-                                   // eslint-disable-next-line jsx-a11y/alt-text
-                                   <img 
-                                   src={url+person.zdjecie[0].formats.thumbnail.url}
+                                   squad.map((person,index)=>{
+                                        console.log(person.zdjecie["url"])
+                                    return(
+                                         <img 
+                                   src={person.zdjecie["url"]}
                                    key={index} 
                                   
-                                   style={{height:pictureGallery.current.height+'px'}}
+                                  //style={{height:pictureGallery.current.height+'px'}}
                                    className="squad__view-picture_gallery-img" onClick={()=>handleChangePerson(index)}/>
                                    
-                                    )  
+                                    ) 
+                                   
+                                   } )
+                                   // eslint-disable-next-line jsx-a11y/alt-text
+                                   
+                                   
                             }</div>
                             
-                            <img src={squad.length!==0?url+squad[counter].zdjecie[0].url:null} alt="squad-persons" className="squad__view-picture_img"/>
+                            <img src={squad[counter].zdjecie.url} alt="squad-persons" className="squad__view-picture_img"/>
 
                         </div>
                      
@@ -110,15 +102,18 @@ const Squad = ({url}) => {
                     
                     <div className="squad__text">
 
-                        <h3 className="squad__text-name">{squad.length!==0?squad[counter].imie:null}</h3>
-                        <p className="squad__text-description section__text">{squad.length!==0?squad[counter].opis:null} <span className="squad__text-description-line"></span></p>
+                        <h3 className="squad__text-name">{squad[counter].imie}</h3>
+                        <p className="squad__text-description section__text">{squad[counter].opis} <span className="squad__text-description-line"></span></p>
 
                     </div>
 
                 </div>
             </div>
 
-       </section>
+       </section> 
+          
+        
+       
      );
 
 }

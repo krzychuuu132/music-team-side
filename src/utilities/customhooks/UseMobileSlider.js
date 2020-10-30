@@ -1,13 +1,15 @@
-import React,{ useEffect,useRef } from 'react';
+import React,{ useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 
-export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
+export const UseMobileSlider  = ({data,counter,setCounter,setChangePersonMobile}) =>{
 
+    const swiperRef = useRef(null);
+    const nextRef = useRef(null);
+    const previousRef = useRef(null);
 
-    const nexRef = useRef(null);
-    console.log(data)
+   
     
     return(
     
@@ -15,7 +17,7 @@ export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
     
             <div className="squad__view-slider-btns">                   
                                 
-                <button className="squad__view-slider_btn prev" onClick={()=>setChangePersonMobile('previous')} ref={nexRef}>
+                <button className="squad__view-slider_btn prev" onClick={()=> {setChangePersonMobile('previous');swiperRef.current.swiper.slidePrev();}} ref={previousRef}>
                     <span className="fas fa-chevron-left" ></span>
                 </button>
     
@@ -25,32 +27,39 @@ export const UseMobileSlider  = ({data,url,counter,setChangePersonMobile}) =>{
     
                 }</div>
     
-                <button className="squad__view-slider_btn next" onClick={()=>setChangePersonMobile('next')} >
+                <button className="squad__view-slider_btn next" onClick={()=>{setChangePersonMobile('next');swiperRef.current.swiper.slideNext();}} ref={nextRef}>
                         <span className="fas fa-chevron-right"></span>
                 </button>
     
             </div> 
        
             <Swiper
-          
+               ref={swiperRef}
                height={300}
                direction='horizontal'
                loop={true}
-               navigation={{nextEl:nexRef.current,prevEl:'.prev'}}
+               navigation={{nextEl:nextRef.current,prevEl:previousRef.current}}
                pagination={{ el:'.swiper-pagination',clickable:true}}
                scrollbar={{el:'.swiper-scrollbar',draggable:true}}
+               
+              onSlideChange={(swiper) => setCounter(swiper.realIndex)}
+            
             >
             {
-              data.length !== 0  ?  data.map((thing,index)=>(
-                    <SwiperSlide  key={index}> 
+              data.length !== 0  ?
+                data.map((thing,index)=>(
+                    <SwiperSlide  key={index} virtualIndex> 
+                    {
+                       
+                    }
                     <img 
-                    src={url+thing.zdjecie[0].url}
-                   
-                    className="swiper-slide__img"
+                      src={thing.zdjecie["url"]}
+                      className="swiper-slide__img"
                     />
                     
                     </SwiperSlide>
-                )):console.log('eloo')
+                ))
+              :null
             }
             </Swiper>
        

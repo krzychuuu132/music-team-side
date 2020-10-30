@@ -4,26 +4,10 @@ import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Visits.scss';
 
-const Visits = ({url}) => {
+const Visits = ({visits}) => {
 
-    const [visits,setVisits] = useState([]);
-
-    useEffect(()=>{
-        
-        const fetchData = async () => {
-
-            const data  = await fetchSquad(`${url}/visits`);
-
-            if(data!==null) {
-                
-               return setVisits(data);
-            }
-        };
-
-      fetchData();
-        
-
-    },[])
+    
+  
 
   
 

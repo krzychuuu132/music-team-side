@@ -9,6 +9,7 @@ import './styles/style.scss';
 import "jquery";
 import "bootstrap";
 
+import "swiper/swiper.scss";
 
 const App = () => {
 

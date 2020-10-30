@@ -4,26 +4,11 @@ import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Cooperating.scss';
 
-const Cooperating = ({url}) => {
+const Cooperating = ({coopertns:cooperating}) => {
 
-    const [cooperating,setCooperating] = useState([]);
+    
 
-    useEffect(()=>{
-        
-        const fetchData = async () => {
-
-            const data  = await fetchSquad(`${url}/coops`);
-
-            if(data!==null) {
-                
-               return setCooperating(data);
-            }
-        };
-
-      fetchData();
-        
-
-    },[])
+  
     
     return ( 
 
@@ -40,7 +25,7 @@ const Cooperating = ({url}) => {
 
                     <div className="cooperating__person" key={index}>
                        
-                        <img src={url+person.zdjecie[0].url} alt="cooperating-person" className="cooperating__person-picture"/>
+                        <img  src={person.zdjecie["url"]} alt="cooperating-person" className="cooperating__person-picture"/>
 
                     <p className="cooperating__person-name">{person.name}</p>
 
