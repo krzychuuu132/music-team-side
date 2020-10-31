@@ -68,7 +68,7 @@ const Offer = ({offers}) => {
 
                                     <p className="offer__gallery-main-text">{ offers[counter].opis}</p>
 
-                                    
+                                    <button className="section__btn offer__btn">zapytaj o szczegóły</button>
                                 </div>
 
                                 <div className="offer__gallery-offers">
@@ -89,7 +89,7 @@ const Offer = ({offers}) => {
 
                             </div>
 
-                            <button className="section__btn offer__btn">zapytaj o szczegóły</button>
+                            
 
                         </div>
 

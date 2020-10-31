@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding-left: 0;
+    flex-shrink: 0;
 }
 
 
@@ -21,9 +22,11 @@
 
         @media (min-width:768px) {
             border-left: 2px solid black;
-            height: min-content;
+            height: 300px;
+            width: 1000px;
             margin-left: 60px;
             margin-top: 40px;
+            
         }
 
         &-title{

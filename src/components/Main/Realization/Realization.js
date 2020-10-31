@@ -1,7 +1,4 @@
-import React,{ useEffect,useState } from 'react';
-
-
-import { fetchSquad } from '../../../utilities/fetchData';
+import React,{ useRef, useState } from 'react';
 
 import YoutubeIcon from '../../../img/youtube.png';
 
@@ -9,7 +6,36 @@ import './Realization.scss';
 
 
 
-const Realization = ({playlists:realizations}) => {
+const Realization = ({playlists:realizations,audios}) => {
+
+    const audioRef = useRef(null);
+    const currentMusicTitleRef= useRef(null);
+
+    const [play,setPlay]  = useState(true);
+
+    const handleMusicClick  = (audio) =>{
+        console.log(audio.source.url)
+        currentMusicTitleRef.current.innerText = audio.tytul;
+        audioRef.current.src = audio.source.url;
+        audioRef.current.parentNode.play()
+    }
+
+        const handleAudioPlay = (e) =>{
+            
+            setPlay(prevState=>!prevState);
+            
+            console.log(play)
+            if(play){
+                e.target.className = "fas fa-pause";
+                audioRef.current.parentNode.play();
+            } 
+            else{
+                e.target.className = "fas fa-play";
+                audioRef.current.parentNode.pause()
+            }
+            
+           
+        }
 
     return (
 
@@ -46,12 +72,19 @@ const Realization = ({playlists:realizations}) => {
                                 </div>
 
                                 <div className="realization__stoper">
-                                    <p className="realization__stoper-text"><b>Now playing</b>: Audio test vol 1</p>
+                                    <p className="realization__stoper-text"><b>Now playing</b>:<span ref={currentMusicTitleRef} className="realization__stoper-title"> Audio test vol 1</span></p>
                                     
-                                    <div className="realization__stoper-pannel">                                            
-                                    <audio controls>
-	                                        <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
-                                            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+                                    <div className="realization__stoper-pannel">  
+
+                                    <button className="realization__stoper-pannel-btn"><span className="fas fa-step-forward"></span></button>
+
+                                    <button className="realization__stoper-pannel-btn"><span className="fas fa-play" onClick={(e)=>handleAudioPlay(e)}></span></button>
+
+                                    <button className="realization__stoper-pannel-btn"><span className="fas fa-step-backward"></span></button>
+
+                                    <audio controls style={{visibility:'hidden',display:'none'}} >
+	                                        <source src={audios[0].source.url} type="audio/mpeg" ref={audioRef}/>
+                                         
 	
                                     </audio>
                                     
@@ -59,25 +92,21 @@ const Realization = ({playlists:realizations}) => {
                                 </div>
 
                                 <div className="realization__musics">
+                                        {
+                                            audios.map((audio,index)=>(
 
-                                        <div className="realization__musics-music">
+                                                        <div className="realization__musics-music" key={index} onClick={()=>handleMusicClick(audio)}>
 
-                                            <span class="fas fa-play realization__musics-music_icon"></span>
+                                                                <span class="fas fa-play realization__musics-music_icon"></span>
 
-                                            <p className="realization__musics-music_text">Audio test vol 1</p>
+                                                                <p className="realization__musics-music_text">{audio.tytul}</p>
 
-                                        </div>
+                                                        </div>
+                                            ))
+                                        }
+                                        
 
-                                        <div className="realization__musics-music">
-
-                                            <span class="fas fa-play realization__musics-music_icon">
-                                                
-
-                                    </span>
-
-                                            <p className="realization__musics-music_text">Audio test vol 1</p>
-
-                                        </div>
+                                     
 
                                 </div>
 

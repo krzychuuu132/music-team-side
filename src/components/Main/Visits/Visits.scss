@@ -4,6 +4,10 @@
     padding-left: 0;
 }
 
+.realization .section__title-line{
+    transform: translateX(0) !important;
+}
+
 .realization-wrapper{
     display: flex;
     flex-direction: column;
