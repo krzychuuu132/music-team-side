@@ -27,11 +27,11 @@ const Contact = () => {
 
                                 <div className="contact__data-container">
 
-                                <span className="contact__data-text">ul. Długa 55/4</span>
+                                    <span className="contact__data-text">ul. Długa 55/4</span>
 
-                                <span className="contact__data-text">Kraków 00-000</span>
+                                    <span className="contact__data-text">Kraków 00-000</span>
 
-                                <span className="contact__data-text">Kraków 00-000</span>
+                                    <span className="contact__data-text">Kraków 00-000</span>
 
                                 </div>
 
@@ -51,7 +51,7 @@ const Contact = () => {
 
                                     <div className="contact__validation-form_check">
                                         <input type="checkbox" id="agree" name="agree" className="contact__validation-form_checkbox"/>
-                                        <label for="agree" className="contact__validation-form_checkbox-text">Wyrażam zgodę na przetwarzanie 
+                                        <label htmlFor="agree" className="contact__validation-form_checkbox-text">Wyrażam zgodę na przetwarzanie 
                                             moich danych osobowych zgodnie 
                                             z <u>polityką prywatności</u></label>
                                     </div>

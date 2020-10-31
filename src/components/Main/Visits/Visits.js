@@ -1,17 +1,11 @@
-import React,{ useEffect,useState } from 'react';
-
-import { fetchSquad } from '../../../utilities/fetchData';
+import React from 'react';
 
 import './Visits.scss';
 
+
 const Visits = ({visits}) => {
 
-    
-  
-
-  
-
-    return ( 
+ return ( 
        
         <section className="section realization" id="visits">
 

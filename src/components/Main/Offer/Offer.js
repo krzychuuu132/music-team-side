@@ -1,37 +1,17 @@
-import React,{ useEffect, useState } from 'react';
-import gsap from 'gsap';
+import React,{ useState,useRef } from 'react';
 
-import { fetchSquad } from '../../../utilities/fetchData';
+
+import { MobileSlider } from '../../../utilities/MobileSlider';
+import { handleChangePerson, setChangePersonMobile } from '../../../utilities/sliderFunctions';
 
 import './Offer.scss';
-import { UseMobileSlider } from '../../../utilities/customhooks/UseMobileSlider';
+
 
 const Offer = ({offers}) => {
 
     const [counter,setCounter] = useState(0);
 
-    
-
-    const handleChangePerson  = (index) =>{
-
-        gsap.fromTo(document.querySelector('.offer__gallery-main-img'),.5,{
-            opacity:0,
-        
-        },{opacity:1})
-
-        setCounter(index)
-    }
-
-    const setChangePersonMobile  =(type) =>{
-        
-        gsap.fromTo(document.querySelector('.offer__gallery-main-img'),.5,{
-            opacity:0,
-            
-        },{opacity:1})
-      
-        setCounter(prevState=>type === 'next'?counter === offers.length-1 ? 0:++prevState:counter <= 0 ? offers.length-1:--prevState);
-     
-    }
+    const mainImgRef = useRef(null);
 
     return ( 
       
@@ -44,11 +24,12 @@ const Offer = ({offers}) => {
                         <div className="offer-wrapper">
 
                             
-                            <UseMobileSlider 
+                            <MobileSlider 
                                 data={offers} 
                                 counter={counter} 
                                 setCounter={setCounter}
                                 setChangePersonMobile={setChangePersonMobile}
+                                mainImgRef={mainImgRef.current}
                             />
 
                             <div className="offer__gallery">
@@ -61,14 +42,17 @@ const Offer = ({offers}) => {
                                     src={offers[counter].zdjecie.url}
                                     alt="main-offer" 
                                     className="offer__gallery-main-img"
-                                  
+                                    ref={mainImgRef}
                                     />
 
                                     <h2 className="offer__gallery-main-title">{offers[counter].tytul}</h2>
 
                                     <p className="offer__gallery-main-text">{ offers[counter].opis}</p>
 
-                                    <button className="section__btn offer__btn" ><a href="#contact" className="offer__btn-link">zapytaj o szczegóły</a></button>
+                                    <button className="section__btn offer__btn" >
+                                        <a href="#contact" className="offer__btn-link">zapytaj o szczegóły</a>
+                                    </button>
+                                    
                                 </div>
 
                                 <div className="offer__gallery-offers">
@@ -79,7 +63,7 @@ const Offer = ({offers}) => {
                                            alt="offers" 
                                            key={index} 
                                            className="offer__gallery-offers-img"
-                                           onClick={()=>handleChangePerson(index)}
+                                           onClick={()=>handleChangePerson(mainImgRef.current,index,setCounter)}
                                            />
                                        ))
                                    }

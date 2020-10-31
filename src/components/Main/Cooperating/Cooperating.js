@@ -1,16 +1,11 @@
-import React,{useEffect,useState} from 'react';
+import React from 'react';
 
-import { fetchSquad } from '../../../utilities/fetchData';
 
 import './Cooperating.scss';
 
 const Cooperating = ({coopertns:cooperating}) => {
 
-    
-
-  
-    
-    return ( 
+  return ( 
 
         <section className="section cooperating">
 
@@ -27,7 +22,7 @@ const Cooperating = ({coopertns:cooperating}) => {
                        
                         <img  src={person.zdjecie["url"]} alt="cooperating-person" className="cooperating__person-picture"/>
 
-                    <p className="cooperating__person-name">{person.name}</p>
+                        <p className="cooperating__person-name">{person.name}</p>
 
                     </div>
                   ))

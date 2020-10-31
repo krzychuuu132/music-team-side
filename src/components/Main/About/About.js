@@ -10,16 +10,7 @@ const About = () => {
   const aboutImgRef  = useRef(null);
   
 
-  useEffect(()=>{
-
-  
-    aboutImgRef.current.style.height = `${aboutInfoRef.current.offsetHeight -20}px`;
-
-    const h1 = document.querySelector('.section__title');
-    var styles = window.getComputedStyle(h1, ':after');
-    console.log(styles)
-
-  },[])
+  useEffect(()=> {aboutImgRef.current.style.height = `${aboutInfoRef.current.offsetHeight -20}px`},[])
 
     return ( 
 

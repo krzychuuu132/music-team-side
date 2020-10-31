@@ -97,7 +97,7 @@ const Realization = ({playlists:realizations,audios}) => {
 
                                                         <div className="realization__musics-music" key={index} onClick={()=>handleMusicClick(audio)}>
 
-                                                                <span class="fas fa-play realization__musics-music_icon"></span>
+                                                                <span className="fas fa-play realization__musics-music_icon"></span>
 
                                                                 <p className="realization__musics-music_text">{audio.tytul}</p>
 

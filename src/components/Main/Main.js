@@ -16,6 +16,7 @@ import 'swiper/swiper-bundle.css';
 
 
 import './Main.scss';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Main = () => {
@@ -34,12 +35,12 @@ const Main = () => {
             const classNames = main_children[index].className;
             const className = classNames.slice(8,classNames.length).trim();
            
-            console.log(className)
+           
             gsap.fromTo([section_line,document.querySelector('.about-team__picture-line')],{x:'-100%'},{x:0,ease: "elastic.out(1, 0.3)" ,duration:1,scrollTrigger:{
                 trigger:`.${className}`,
                 start:'top 20%',
                 pinReparent:true,
-                toggleActions: "play reverse play reverse"
+                
                
             }})
         })
@@ -48,7 +49,7 @@ const Main = () => {
             trigger:`.about-team`,
             start:'top 20%',
             pinReparent:true,
-                toggleActions: "play reverse play reverse"
+              
            
         }});
 
@@ -56,9 +57,10 @@ const Main = () => {
             trigger:`.squad`,
             start:'top 20%',
             pinReparent:true,
-                toggleActions: "play reverse play reverse"
+             
            
         }})
+        
       
     },[dataPage])
 
@@ -139,7 +141,8 @@ const Main = () => {
                     <Contact />
                     <Visits  visits={visits}/>
                     <Footer />
-                    </>
+
+                </>
                ):null
            }
             

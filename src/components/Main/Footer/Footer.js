@@ -2,9 +2,9 @@ import React from 'react';
 
 import './Footer.scss';
 
-import {ReactComponent as YoutubeImage} from '../../../img/Youtube.svg';
-import {ReactComponent as InstagramImage} from '../../../img/Instagram.svg';
-import {ReactComponent as FacebookImage} from '../../../img/Facebook.svg';
+import { ReactComponent as YoutubeImage } from '../../../img/Youtube.svg';
+import { ReactComponent as InstagramImage } from '../../../img/Instagram.svg';
+import { ReactComponent as FacebookImage } from '../../../img/Facebook.svg';
 
 const Footer = () => {
     return ( 

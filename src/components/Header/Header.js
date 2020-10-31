@@ -46,7 +46,7 @@ const Header = () => {
 
             <div className="wrapper">
                     <div className="logo">
-                        <img src={Logo} alt="team-logo" /> 
+                        <img src={Logo} alt="team-logo" className="logo__img"/> 
                     </div>
                     <Navigation menuSections={menuSections}/>
             </div>

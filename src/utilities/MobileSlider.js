@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 
 
-export const UseMobileSlider  = ({data,counter,setCounter,setChangePersonMobile}) =>{
+export const MobileSlider  = ({data,counter,setCounter,setChangePersonMobile,mainImgRef}) =>{
 
     const swiperRef = useRef(null);
     const nextRef = useRef(null);
@@ -17,7 +17,14 @@ export const UseMobileSlider  = ({data,counter,setCounter,setChangePersonMobile}
     
             <div className="squad__view-slider-btns">                   
                                 
-                <button className="squad__view-slider_btn prev" onClick={()=> {setChangePersonMobile('previous');swiperRef.current.swiper.slidePrev();}} ref={previousRef}>
+                <button className="squad__view-slider_btn prev" 
+                  onClick={()=> {
+
+                  setChangePersonMobile(mainImgRef,counter,'previous',data,setCounter);
+                  swiperRef.current.swiper.slidePrev();}} 
+
+                  ref={previousRef}>
+
                     <span className="fas fa-chevron-left" ></span>
                 </button>
     
@@ -27,7 +34,12 @@ export const UseMobileSlider  = ({data,counter,setCounter,setChangePersonMobile}
     
                 }</div>
     
-                <button className="squad__view-slider_btn next" onClick={()=>{setChangePersonMobile('next');swiperRef.current.swiper.slideNext();}} ref={nextRef}>
+                <button className="squad__view-slider_btn next" 
+                onClick={()=>{
+                  setChangePersonMobile(mainImgRef,counter,'next',data,setCounter);
+                  swiperRef.current.swiper.slideNext();
+                }} 
+                ref={nextRef}>
                         <span className="fas fa-chevron-right"></span>
                 </button>
     
@@ -49,9 +61,7 @@ export const UseMobileSlider  = ({data,counter,setCounter,setChangePersonMobile}
               data.length !== 0  ?
                 data.map((thing,index)=>(
                     <SwiperSlide  key={index} virtualIndex> 
-                    {
-                       
-                    }
+                    
                     <img 
                       src={thing.zdjecie["url"]}
                       className="swiper-slide__img"
