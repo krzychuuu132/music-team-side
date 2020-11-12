@@ -43,7 +43,7 @@ const Realization = ({playlists:realizations,audios}) => {
 
             <div className="wrapper">
 
-                        <h2 className="section__title realization__title">Realizacje <span className="section__title-line"></span></h2>
+                        <h2 className="section__title realization__title">audio | video <span className="section__title-line"></span></h2>
 
                             <div className="realization-wrapper">
 

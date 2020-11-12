@@ -30,20 +30,7 @@ const Main = () => {
 
         const main_children = mainRef.current.children;
       
-        const section_lines = document.querySelectorAll('.section__title > span').forEach((section_line,index)=>{
-
-            const classNames = main_children[index].className;
-            const className = classNames.slice(8,classNames.length).trim();
-           
-           
-            gsap.fromTo([section_line,document.querySelector('.about-team__picture-line')],{x:'-100%'},{x:0,ease: "elastic.out(1, 0.3)" ,duration:1,scrollTrigger:{
-                trigger:`.${className}`,
-                start:'top 20%',
-                pinReparent:true,
-                
-               
-            }})
-        })
+        
         
         gsap.fromTo(document.querySelector('.about-team__picture-line'),{x:'100%'},{x:0,ease: "elastic.out(1, 0.3)",delay:.2,duration:1,scrollTrigger:{
             trigger:`.about-team`,
@@ -93,7 +80,14 @@ const Main = () => {
                   godzina
                   miejsce
                 }
-                
+
+                archiwums{
+                  tytul
+                  data
+                  godzina
+                  miejsce
+                }
+
                 playlists{
                   zdjecie{
                     url
@@ -125,7 +119,7 @@ const Main = () => {
           fetchData();
     },[])
 
-    const {coopertns,squads,visits,playlists,offers,audios} = dataPage;
+    const {coopertns,squads,visits,playlists,offers,audios,archiwums} = dataPage;
     
    
     return ( 
@@ -133,13 +127,15 @@ const Main = () => {
            {
                 dataPage.length !== 0 ? (
                 <>
-                    <About />
-                    <Squad  squads={squads}/>
-                    <Cooperating  coopertns={coopertns}/>
-                    <Realization  playlists={playlists} audios={audios}/>
+                    <About squads={squads}>
+                      
+                    </About>
+                     <Realization  playlists={playlists} audios={audios}/>
                     <Offer  offers={offers}/>
+                   
+                    <Visits  visits={visits} archiwums={archiwums}/>
                     <Contact />
-                    <Visits  visits={visits}/>
+                   
                     <Footer />
 
                 </>

@@ -20,11 +20,11 @@ const Squad = ({squads: squad}) => {
     return ( 
         
          
-            <section className="section squad" id="team">
+        
 
                 <div className="wrapper">
 
-                    <h2 className="section__title about-team__title">stały skład <span className="section__title-line"></span></h2>
+                   
 
                     <div className="squad-wrapper">
                    
@@ -75,7 +75,7 @@ const Squad = ({squads: squad}) => {
                 </div>
             </div>
 
-       </section> 
+ 
           
         
        

@@ -3,8 +3,9 @@ import React,{ useRef,useEffect } from 'react';
 import './About.scss';
 
 import about_team_picture from '../../../img/about-team_picture.png';
+import Squad from '../Squad/Squad';
 
-const About = () => {
+const About = ({squads}) => {
 
   const aboutInfoRef  = useRef(null);
   const aboutImgRef  = useRef(null);
@@ -20,7 +21,7 @@ const About = () => {
 
             <div className="about-team__info" ref={aboutInfoRef}>
 
-                <h2 className="section__title about-team__title">o zespole  <span className="section__title-line"></span></h2>
+                <h2 className="section__title about-team__title">o nas  <span className="section__title-line"></span></h2>
 
                
 
@@ -41,6 +42,12 @@ const About = () => {
             </div>
 
           </div>
+
+
+         
+         
+        <Squad squads={squads}/>
+         
 
         </section>
 
