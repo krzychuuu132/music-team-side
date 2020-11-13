@@ -4,9 +4,7 @@
     padding: 0 10px;
 }
 
-.visits .section__title-line{
-    transform: translateX(0) !important;
-}
+
 
 .visits-wrapper{
     display: flex;
@@ -161,8 +159,15 @@
     height: auto !important;
     margin: 110px auto 10px auto!important;
 
-    @media (min-width:768px) {
-       
-     
+   
+}
+
+.visits__archiwums .realization__element-ticket{
+    display: flex;
+
+    align-items: center;
+    &_btn{
+        display: none;
     }
+
 }

@@ -30,9 +30,22 @@ const Main = () => {
 
         const main_children = mainRef.current.children;
       
+        const section_lines = document.querySelectorAll('.section__title > span').forEach((section_line,index)=>{
+
+          const classNames = main_children[index].className;
+          const className = classNames.slice(8,classNames.length).trim();
+         
+         
+          gsap.fromTo([section_line,document.querySelector('.about-team__picture-line')],{x:'-100%'},{x:0,ease: "Power4.easeOuteaseOut" ,duration:1,scrollTrigger:{
+              trigger:`.${className}`,
+              start:'top 20%',
+              pinReparent:true,
+              
+             
+          }})
+      })
         
-        
-        gsap.fromTo(document.querySelector('.about-team__picture-line'),{x:'100%'},{x:0,ease: "elastic.out(1, 0.3)",delay:.2,duration:1,scrollTrigger:{
+        gsap.fromTo(document.querySelector('.about-team__picture-line'),{x:'100%'},{x:0,ease: "Power4.easeOuteaseOut",delay:.2,duration:1,scrollTrigger:{
             trigger:`.about-team`,
             start:'top 20%',
             pinReparent:true,
@@ -40,7 +53,7 @@ const Main = () => {
            
         }});
 
-        gsap.fromTo(document.querySelector('.squad__text-description-line'),{x:'100%'},{x:0,ease: "elastic.out(1, 0.3)",delay:.2,duration:1,scrollTrigger:{
+        gsap.fromTo(document.querySelector('.squad__text-description-line'),{x:'100%'},{x:0,ease: "Power4.easeOuteaseOut",delay:.2,duration:1,scrollTrigger:{
             trigger:`.squad`,
             start:'top 20%',
             pinReparent:true,

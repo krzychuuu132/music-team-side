@@ -13,6 +13,7 @@ const Article = () => {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                                 <img className="d-block w-100 slide__img" src={slider_one} alt="First slide"/>
+                                <h2 className="slide__title"></h2>
                         </div>
                         <div className="carousel-item">
                                 <img className="d-block w-100 slide__img" src={slider_one}  alt="Second slide"/>
